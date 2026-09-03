@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preva — Prove it before you spend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="brand">
+        <div class="logo">P</div>
+        <div>
+            <h1>Preva</h1>
+            <p>Prove it before you spend.</p>
+        </div>
+    </div>
+    <div class="status">
+        <span class="status-dot"></span>
+        API Online
+    </div>
+</header>
+<main class="container">
+    <section class="hero">
+        <p class="eyebrow">AI SPENDING DECISION AGENT</p>
+        <h2>Don't approve spending you can't defend.</h2>
+        <p class="hero-text">Preva analyzes evidence, expected returns, historical performance and financial guardrails before money is committed.</p>
+    </section>
+    <section class="grid">
+        <div class="card">
+            <h3>New Decision</h3>
+            <p class="muted">Tell Preva what you want to spend money on.</p>
+            <form id="decision-form">
+                <label>Spending purpose <input id="purpose" type="text" placeholder="e.g. Facebook advertising campaign" required></label>
+                <label>Amount (NGN) <input id="amount" type="number" min="1" step="0.01" placeholder="1000000" required></label>
+                <label>Expected revenue (NGN) <input id="expected-revenue" type="number" min="0" step="0.01" placeholder="1500000" required></label>
+                <label>Expected customers <input id="expected-customers" type="number" min="0" step="1" placeholder="150"></label>
+                <label>Historical ROAS <span class="optional">optional</span> <input id="historical-roas" type="number" min="0" step="0.01" placeholder="0.82"></label>
+                <label class="checkbox-row"><input id="has-evidence" type="checkbox"> I have supporting evidence</label>
+                <label>Evidence notes <textarea id="evidence-description" placeholder="Describe the invoice, quotation, campaign data, previous results, etc."></textarea></label>
+                <button id="analyze-button" type="submit">Analyze Decision</button>
+            </form>
+        </div>
+        <div class="card result-card">
+            <div id="empty-state">
+                <div class="big-icon">◇</div>
+                <h3>Awaiting a decision</h3>
+                <p class="muted">Enter a proposed expense and Preva will evaluate it.</p>
+            </div>
+            <div id="result" class="hidden">
+                <div class="result-header">
+                    <div><p class="eyebrow">PREVA DECISION</p><h3 id="decision-label">—</h3></div>
+                    <div id="risk-score" class="risk-score">—</div>
+                </div>
+                <div class="metrics">
+                    <div><span>ROI</span><strong id="roi">—</strong></div>
+                    <div><span>ROAS</span><strong id="roas">—</strong></div>
+                    <div><span>Risk</span><strong id="risk">—</strong></div>
+                    <div><span>Evidence</span><strong id="confidence">—</strong></div>
+                </div>
+                <div class="recommendation"><h4>Recommendation</h4><p id="explanation">—</p></div>
+                <div class="recommendation"><h4>Recommended maximum</h4><p id="recommended-spend">—</p></div>
+                <div class="scenarios"><h4>Scenario analysis</h4><div id="scenario-list"></div></div>
+                <div class="ai-box"><h4>AI Analyst</h4><p id="ai-assessment">—</p><small id="ai-mode">—</small></div>
+            </div>
+        </div>
+    </section>
+    <section class="stats-card">
+        <h3>Preva activity</h3>
+        <div class="stats">
+            <div><span>Decisions analyzed</span><strong id="stat-total">0</strong></div>
+            <div><span>Amount analyzed</span><strong id="stat-amount">₦0</strong></div>
+            <div><span>Approved</span><strong id="stat-approved">0</strong></div>
+            <div><span>Review / Conditional</span><strong id="stat-review">0</strong></div>
+            <div><span>Rejected</span><strong id="stat-rejected">0</strong></div>
+        </div>
+    </section>
+</main>
+<footer><p>Preva · Evidence before expenditure</p></footer>
+<script src="app.js"></script>
+</body>
+</html>
