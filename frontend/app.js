@@ -1,4 +1,4 @@
-const API_BASE = window.PREVA_API_URL || "http://127.0.0.1:8000";
+const API_BASE = window.PREVA_API_URL || "https://preva-api.onrender.com";
 const form = document.getElementById("decision-form");
 const analyzeButton = document.getElementById("analyze-button");
 const emptyState = document.getElementById("empty-state");
